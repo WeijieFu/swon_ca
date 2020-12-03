@@ -1,28 +1,11 @@
 <template>
   <div class="container">
     <div>
-      <Logo />
+
       <h1 class="title">
-        swon_ca
+        swon.ca
       </h1>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--grey"
-        >
-          GitHub
-        </a>
-      </div>
+     
     </div>
   </div>
 </template>
@@ -39,6 +22,7 @@ export default {}
   justify-content: center;
   align-items: center;
   text-align: center;
+  background-color: #f5d632;
 }
 
 .title {
@@ -55,7 +39,7 @@ export default {}
   display: block;
   font-weight: 300;
   font-size: 100px;
-  color: #35495e;
+  color: #000000;
   letter-spacing: 1px;
 }
 
