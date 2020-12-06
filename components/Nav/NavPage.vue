@@ -34,4 +34,14 @@ export default {
     font-family: "Open Sans", sans-serif;
     font-size: 1rem;
 }
+
+
+@media only screen and (max-width: 600px) {
+  .navpage{
+    top: -200%;
+  }
+  .navpage_show{
+    top: 0;
+}
+}
 </style>
