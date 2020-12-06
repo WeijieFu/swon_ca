@@ -76,7 +76,7 @@ export default {
     beforeMount(){
         this.innerWidth = window.innerWidth;
         window.addEventListener('wheel', this.handleScroll);
-        // window.addEventListener('touchmove', this.handleScroll);
+        window.addEventListener('touchmove', this.handleScroll);
     },
     mounted(){
          this.getProcessWidth();
