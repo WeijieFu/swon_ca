@@ -16,10 +16,12 @@ html {
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
 
-
+ 
 
   --color-main-yellow: #f5d632;
   --color-main-black: #000000;
+
+  background-color: var(--color-main-black);
 }
 
 *,

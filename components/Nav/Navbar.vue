@@ -59,7 +59,19 @@ export default {
             }
            
         },
+        handleMobile(){
+            let i = setInterval(()=>{
+                if(this.scrollPosition>=0){
+                    this.scrollPosition += 400;
+                    this.process += "|   ";
 
+                    if(this.scrollPosition > this.fullLength){
+                        this.toggleDarkMode();
+                        clearInterval(i);
+                    }
+                }
+            }, 100)
+        },
         toggleNavPage(){
             this.toggleDarkMode();
             this.showNavPage = !this.showNavPage;
@@ -75,8 +87,13 @@ export default {
     },
     beforeMount(){
         this.innerWidth = window.innerWidth;
-        window.addEventListener('wheel', this.handleScroll);
-        window.addEventListener('touchmove', this.handleScroll);
+
+        if(this.innerWidth>760){
+             window.addEventListener('wheel', this.handleScroll);
+        }else{
+            this.handleMobile();
+        }
+        
     },
     mounted(){
          this.getProcessWidth();
