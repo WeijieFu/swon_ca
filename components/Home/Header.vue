@@ -48,4 +48,10 @@ export default {
         width: 2rem;
         height:2rem;
     }
+
+    @media only screen and (max-width: 600px) {
+        .sub_title{
+            font-size: 1.2rem;
+        }
+}
 </style>
