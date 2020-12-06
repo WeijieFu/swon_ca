@@ -1,20 +1,43 @@
 <template>
-  <div class="container">
-    <div>
-
-      <h1 class="title">
-        swon.ca
-      </h1>
+  <div class="container" :class="{container_dark : isDarkMode}">
+    
+      <Navbar 
+        :showNavPage="showNavPage" 
+        :isDarkMode="isDarkMode" 
+        @toggleDarkMode="isDarkMode = $event" 
+        @toggleNavPage="showNavPage = $event"
+        />
+      <NavPage :showNavPage="showNavPage"/>
+      <Header v-show="!isDarkMode"/>
+      
      
-    </div>
+   
   </div>
 </template>
 
 <script>
-export default {}
+import Navbar from '@/components/Nav/Navbar.vue';
+import NavPage from '@/components/Nav/NavPage.vue';
+import Header from '@/components/Home/Header.vue';
+export default {
+  data(){
+    return{
+      isDarkMode : true,
+      showNavPage: false,
+    }
+  },
+ 
+
+  components:{
+    Navbar,
+    NavPage,
+    Header,
+  }
+}
 </script>
 
 <style>
+
 .container {
   margin: 0 auto;
   min-height: 100vh;
@@ -22,36 +45,16 @@ export default {}
   justify-content: center;
   align-items: center;
   text-align: center;
-  background-color: #f5d632;
+
+  transition: all ease-out 0.5s ;
+  background-color: var(--color-main-yellow);
 }
 
-.title {
-  font-family:
-    'Quicksand',
-    'Source Sans Pro',
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    Roboto,
-    'Helvetica Neue',
-    Arial,
-    sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #000000;
-  letter-spacing: 1px;
+.container_dark{
+  background-color: var(--color-main-black);
 }
 
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
 
-.links {
-  padding-top: 15px;
-}
+
+
 </style>
