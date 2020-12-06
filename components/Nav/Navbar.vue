@@ -185,7 +185,7 @@ export default {
 }
 @media only screen and (max-width: 600px) {
   .nav_start_line{
-    height: 2rem;
+    height: 0rem;
   }
 }
 
