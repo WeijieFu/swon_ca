@@ -31,7 +31,7 @@ export default {
     data(){
         return{
             process:"",
-            
+            innerWidth: '0',
             scrollPosition: 0,
             processWidth: 0,
             fullLength: 9000,
@@ -182,6 +182,11 @@ export default {
     stroke-dashoffset: 400;
 
     animation: start 2s ease-in 0s reverse infinite;
+}
+@media only screen and (max-width: 600px) {
+  .nav_start_line{
+    height: 2rem;
+  }
 }
 
 @keyframes start {

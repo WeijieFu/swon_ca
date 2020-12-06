@@ -21,7 +21,7 @@ html {
   --color-main-yellow: #f5d632;
   --color-main-black: #000000;
 
-  background-color: var(--color-main-black);
+  background-color: var(--color-main-yellow);
 }
 
 *,
