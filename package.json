@@ -9,8 +9,13 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
+    "ci-info": "^2.0.0",
     "core-js": "^3.6.5",
-    "nuxt": "^2.14.6"
+    "install": "^0.13.0",
+    "npm": "^6.14.9",
+    "nuxt": "^2.14.10",
+    "std-env": "^2.2.1",
+    "three": "^0.123.0"
   },
   "devDependencies": {}
 }

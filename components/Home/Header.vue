@@ -27,6 +27,7 @@ export default {
 <style scoped>
     .header{
         color: var(--color-main-black);
+        z-index: 10;
     }
     .title{
         font-family: 'Fredoka One', cursive;

@@ -7,6 +7,8 @@
         @toggleDarkMode="isDarkMode = $event" 
         @toggleNavPage="showNavPage = $event"
         />
+
+      <Hills/>
       <NavPage :showNavPage="showNavPage"/>
       <Header v-show="!isDarkMode"/>
       
@@ -19,6 +21,8 @@
 import Navbar from '@/components/Nav/Navbar.vue';
 import NavPage from '@/components/Nav/NavPage.vue';
 import Header from '@/components/Home/Header.vue';
+import Hills from '@/components/Home/Hills.vue';
+
 export default {
   data(){
     return{
@@ -32,6 +36,7 @@ export default {
     Navbar,
     NavPage,
     Header,
+    Hills,
   }
 }
 </script>
