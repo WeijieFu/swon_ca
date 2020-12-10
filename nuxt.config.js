@@ -10,6 +10,11 @@ export default {
     link: [
       { rel: 'preconnect',  href: 'https://fonts.gstatic.com' },
       { rel: 'stylesheet',  href: 'https://fonts.googleapis.com/css2?family=Fredoka+One&family=Open+Sans&display=swap' }
+    
+    ],
+    script:[
+
+    
     ]
   },
 
@@ -19,6 +24,7 @@ export default {
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
   plugins: [
+
   ],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
@@ -34,6 +40,15 @@ export default {
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {
+    extend(config) {
+      // ..
+      config.module.rules.push({
+        test: /\.(gltf)$/,
+        loader: "gltf-webpack-loader"
+      })
+      // Sets webpack's mode to development if `isDev` is true.
+      
+    }
   },
   target: 'static',
 }

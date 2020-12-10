@@ -1,7 +1,6 @@
 <template>
     <div class="hills">
-        <div class="console">This is THREE JS</div>
-        <div class="container">This is container</div>
+      
     </div>
     
 </template>
@@ -10,7 +9,18 @@ import * as THREE from 'three';
 import sceneInit from '@/components/Home/Scene.init.js';
 
 export default {
-    
+    data(){
+       return{
+          root : null,
+          model : '@/assets/model/hills.gltf'
+       }
+    },
+    mounted(){
+       
+        this.root = document.querySelector('.hills');
+        sceneInit(this.root, this.model, ()=>{});
+
+    }
 }
 </script>
 <style scoped>
