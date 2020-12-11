@@ -1,6 +1,6 @@
 <template>
     <div class="hills">
-      
+
     </div>
     
 </template>

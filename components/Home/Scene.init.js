@@ -13,7 +13,8 @@ class SceneInit {
         this.background = 0x000000;
 
         this.canvas = document.createElement('canvas');
-
+       
+       
         this.init();
         this.update();
         this.bindEvents();
@@ -29,6 +30,7 @@ class SceneInit {
         this.initCamera();
         this.initRenderer();
         // this.initControls();
+
 
         this.root.appendChild(this.canvas);
     }
@@ -88,7 +90,7 @@ class SceneInit {
 
     update(){
         requestAnimationFrame(()=> this.update());
-        // console.log('three');
+
 
         if(this.cube){
             this.cube.rotation.y += 0.01;
@@ -150,6 +152,7 @@ class SceneInit {
 
         this.loader.load(hills, gltf=>{
             this.hill = gltf.scene;
+            console.log(this.hill);
             this.hill.children[0].traverse(o=>{
                 if(o.isMesh){
                     o.position.z += -50;
@@ -178,6 +181,7 @@ class SceneInit {
                 }
             })
             this.scene.add(this.hill);
+           
 
         })
     }

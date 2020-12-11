@@ -37,7 +37,7 @@
         },
         {
             "mesh" : 1,
-            "name" : "180422_Basketball_Jewel_Drape_Animation_Turntable_WANR.001",
+            "name" : "180422_Basketball_Jewel_Drape_Animation_Turntable_WANR001",
             "rotation" : [
                 0.7071068286895752,
                 0,
@@ -57,7 +57,7 @@
         },
         {
             "mesh" : 2,
-            "name" : "180422_Basketball_Jewel_Drape_Animation_Turntable_WANR.002",
+            "name" : "180422_Basketball_Jewel_Drape_Animation_Turntable_WANR002",
             "rotation" : [
                 0.7071068286895752,
                 0,
@@ -107,7 +107,7 @@
             ]
         },
         {
-            "name" : "180422_Basketball_Jewel_Drape_Animation_Turntable_WANR.001",
+            "name" : "180422_Basketball_Jewel_Drape_Animation_Turntable_WANR001",
             "primitives" : [
                 {
                     "attributes" : {
@@ -121,7 +121,7 @@
             ]
         },
         {
-            "name" : "180422_Basketball_Jewel_Drape_Animation_Turntable_WANR.002",
+            "name" : "180422_Basketball_Jewel_Drape_Animation_Turntable_WANR002",
             "primitives" : [
                 {
                     "attributes" : {
