@@ -18,6 +18,7 @@ class SceneInit {
         this.loadModel();
         // this.addObjects();
         this.hill = null;
+        this.theta = 0.001;
     }
 
     init(){
@@ -35,12 +36,12 @@ class SceneInit {
     }
     
     initLights(){
-        const ambient = new THREE.AmbientLight(0xFFFFFF, 0.2);
-        // const point = new THREE.PointLight(0xCCCCCC, 0.1, 1);
-        const directional = new THREE.DirectionalLight(0xFFFFFF, 0.1);
+        const ambient = new THREE.AmbientLight(0xFFFFFF, 0);
+
+        const directional = new THREE.DirectionalLight(0xFFFFFF, 0.5);
 
         this.scene.add(ambient);
-        // this.scene.add(point);
+
         this.scene.add(directional);
     }
 
@@ -90,8 +91,12 @@ class SceneInit {
             this.cube.rotation.z += 0.01;
         }
 
+        if(Math.abs(this.theta)>0.001){
+            this.theta *= 0.95;
+        }
+
         if(this.hill){
-            this.hill.children[2].rotation.z -= 0.001;
+            this.hill.children[2].rotation.z -= this.theta;
         }
        
         // this.controls.update();
@@ -100,6 +105,7 @@ class SceneInit {
 
     bindEvents(){
         window.addEventListener('resize', ()=> this.onResize());
+        window.addEventListener('wheel', this.onScroll.bind(this));
     }
 
     onResize(){
@@ -111,6 +117,11 @@ class SceneInit {
         this.camera.aspect = this.width/ this.height;
         this.camera.updateProjectionMatrix();
     }
+    onScroll(e){
+        
+        this.hill.children[2].rotation.z -= e.deltaY/4500;
+        
+    }
     loadModel(){
         const GLTFLoader = require('three-gltf-loader');
         this.loader = new GLTFLoader();
@@ -119,9 +130,10 @@ class SceneInit {
             this.hill = gltf.scene;
             this.hill.traverse(o=>{
                 if(o.isMesh){
-                    o.position.z += -100;
+                    o.position.z += -50;
                     o.position.y += 5;
-                    o.material = new THREE.MeshDepthMaterial();
+                    o.material = new THREE.MeshLambertMaterial();
+
 
                 }
             })
