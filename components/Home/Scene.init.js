@@ -137,7 +137,10 @@ class SceneInit {
 
         this.renderer.setSize(this.width, this.height);
 
-        this.camera.aspect = this.width/ this.height;
+        this.camera.left = this.width / - 40, 
+        this.camera.right = this.width / 40, 
+        this.camera.top = this.height / 40, 
+        this.camera.bottom = this.height / - 40
         this.camera.updateProjectionMatrix();
     }
     onScroll(e){
