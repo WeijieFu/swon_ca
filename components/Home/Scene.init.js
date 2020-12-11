@@ -1,11 +1,14 @@
 import * as THREE from 'three';
-import hills from '../../assets/model/hills2.gltf';
+import hills from '../../assets/model/hills3.gltf';
 
 class SceneInit {
     constructor(rootEl){
         this.root = rootEl;
         this.width = rootEl.clientWidth;
         this.height = rootEl.clientHeight;
+
+        this.hill = null;
+        this.theta = 0.001;
        
         this.background = 0x000000;
 
@@ -17,8 +20,7 @@ class SceneInit {
 
         this.loadModel();
         // this.addObjects();
-        this.hill = null;
-        this.theta = 0.001;
+      
     }
 
     init(){
@@ -86,6 +88,8 @@ class SceneInit {
 
     update(){
         requestAnimationFrame(()=> this.update());
+        // console.log('three');
+
         if(this.cube){
             this.cube.rotation.y += 0.01;
             this.cube.rotation.z += 0.01;
@@ -96,11 +100,28 @@ class SceneInit {
         }
 
         if(this.hill){
+            this.hill.children[0].rotation.z -= this.theta;
+            this.hill.children[1].rotation.z -= this.theta;
             this.hill.children[2].rotation.z -= this.theta;
+
+
+           if(this.hill.children[2].rotation.z < -0.525){
+               if (this.hill.children[1].position.y != -100){
+                    this.hill.children[1].position.y = -100
+               }
+            
+           }
+           if(this.hill.children[2].rotation.z < -1.5695){
+            if (this.hill.children[0].position.y != -100){
+                 this.hill.children[0].position.y = -100
+            }
+         
+        }
         }
        
         // this.controls.update();
         this.render();
+       
     }
 
     bindEvents(){
@@ -118,7 +139,8 @@ class SceneInit {
         this.camera.updateProjectionMatrix();
     }
     onScroll(e){
-        
+        this.hill.children[0].rotation.z -= e.deltaY/4500;
+        this.hill.children[1].rotation.z -= e.deltaY/4500;
         this.hill.children[2].rotation.z -= e.deltaY/4500;
         
     }
@@ -128,7 +150,25 @@ class SceneInit {
 
         this.loader.load(hills, gltf=>{
             this.hill = gltf.scene;
-            this.hill.traverse(o=>{
+            this.hill.children[0].traverse(o=>{
+                if(o.isMesh){
+                    o.position.z += -50;
+                    o.position.y += 5;
+                    o.material = new THREE.MeshLambertMaterial();
+
+
+                }
+            })
+            this.hill.children[1].traverse(o=>{
+                if(o.isMesh){
+                    o.position.z += -50;
+                    o.position.y += 5;
+                    o.material = new THREE.MeshLambertMaterial();
+
+
+                }
+            })
+            this.hill.children[2].traverse(o=>{
                 if(o.isMesh){
                     o.position.z += -50;
                     o.position.y += 5;
@@ -138,7 +178,7 @@ class SceneInit {
                 }
             })
             this.scene.add(this.hill);
-            console.log(this.hill);
+
         })
     }
     addObjects(){
