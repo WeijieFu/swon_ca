@@ -8,7 +8,7 @@
         @toggleNavPage="showNavPage = $event"
         />
 
-      <Hills v-show="isDarkMode"/>
+      <Hills v-show="isDarkMode && !showNavPage"/>
       <NavPage :showNavPage="showNavPage"/>
       <Header v-show="!isDarkMode"/>
       
