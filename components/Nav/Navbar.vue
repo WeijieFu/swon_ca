@@ -46,7 +46,7 @@ export default {
             scrollPosition: 0,
             processWidth: 0,
             fullLength: 9000,
-            isMobile : false,
+            isMobile: false,
         }
     },
     methods:{
@@ -96,7 +96,9 @@ export default {
             
              window.addEventListener('wheel', this.handleScroll);
         }else{
-            that.isMobile = true;
+            console.log(this.isMobile);
+            this.isMobile = !this.isMobile;
+            console.log(this.isMobile);
         }
         
     },
