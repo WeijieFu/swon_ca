@@ -31,17 +31,10 @@
 </template>
 <script>
 export default {
-    data(){
-        return {
-            isMobile : false,
-        }
-    },
 
     props:{
         isDarkMode : Boolean,
         showNavPage: Boolean,
-    
-   
     },
     data(){
         return{
@@ -50,6 +43,7 @@ export default {
             scrollPosition: 0,
             processWidth: 0,
             fullLength: 9000,
+            isMobile : false,
         }
     },
     methods:{
