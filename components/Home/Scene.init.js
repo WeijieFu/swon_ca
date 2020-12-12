@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import hills from '../../assets/model/hills3.gltf';
+
 
 class SceneInit {
     constructor(rootEl){
@@ -152,9 +152,12 @@ class SceneInit {
     }
     loadModel(){
         const GLTFLoader = require('three-gltf-loader');
-        this.loader = new GLTFLoader();
+        const assetPath = 'https://cdn.jsdelivr.net/gh/WeijieFu/swon_ca/assets/model/';
+        this.loader = new GLTFLoader(assetPath);
 
-        this.loader.load(hills, gltf=>{
+        this.loader.setPath(assetPath);
+
+        this.loader.load('hills3.gltf', gltf=>{
             this.hill = gltf.scene;
             console.log(this.hill);
             this.hill.children[0].traverse(o=>{
