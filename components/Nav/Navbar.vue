@@ -298,10 +298,6 @@ export default {
         opacity: 0;
         stroke-dashoffset: 314;
     }
-    75%{
-
-       
-    }
    
     100%{
         opacity: 1;
