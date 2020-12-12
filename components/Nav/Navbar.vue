@@ -3,7 +3,7 @@
         <div class="nav_logo" :class="{nav_logo_dark : isDarkMode}">SWON</div>
         <div class="nav_process" v-show="isDarkMode" ref="nav_process">{{process}}</div>
         <!-- <div class="console">{{`processwidth:${processWidth } scrollPosition:${scrollPosition}` }}</div> -->
-        <div class="nav_circle" :class="{nav_circle_dark : isDarkMode, nav_circle_mobile : isMobile}"  @click="toggleNavPage"  ></div>
+        <div class="nav_circle" :class="{nav_circle_dark : isDarkMode}"  @click="toggleNavPage"  ></div>
 
         <div class="nav_start">
             <svg  class="nav_start_line">
@@ -13,19 +13,14 @@
         </div>
         
 
-        <div class="scroll" v-if="!isMobile">
+        <div class="scroll">
             <svg height="150" width="150" class="scroll_circle">
                 <circle cx="75" cy="75" r="50" fill="none" />
             </svg>  
             <span class="scroll_text">SCROLL</span>
         </div>
 
-         <div class="scroll" v-if="isMobile" @click="skipNav">
-            <svg height="150" width="150" class="scroll_circle scroll_circle_mobile">
-                <circle cx="75" cy="75" r="50" fill="none" />
-            </svg>  
-            <span class="scroll_text scroll_text_mobile">ENTER</span>
-        </div>
+        
     
     </div>
 </template>
@@ -43,7 +38,7 @@ export default {
             scrollPosition: 0,
             processWidth: 0,
             fullLength: 9000,
-            isMobile : false,
+            
         }
     },
     methods:{
@@ -90,8 +85,6 @@ export default {
 
         if(this.innerWidth>760){
              window.addEventListener('wheel', this.handleScroll);
-        }else{
-            this.isMobile = true;
         }
         
     },
