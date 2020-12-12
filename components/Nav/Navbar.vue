@@ -3,8 +3,8 @@
         <div class="nav_logo" :class="{nav_logo_dark : isDarkMode}">SWON</div>
         <div class="nav_process" v-show="isDarkMode" ref="nav_process">{{process}}</div>
         <!-- <div class="console">{{`processwidth:${processWidth } scrollPosition:${scrollPosition}` }}</div> -->
-        <div class="nav_circle" :class="{nav_circle_dark : isDarkMode, nav_circle_mobile : isMobile}"  @click="toggleNavPage" v-if="!isMobile" ></div>
-        <div class="nav_circle" :class="{nav_circle_dark : isDarkMode, nav_circle_mobile : isMobile}"  @click="skipNav" v-if="isMobile" ></div>
+        <div class="nav_circle" :class="{nav_circle_dark : isDarkMode, nav_circle_mobile : isMobile}"  @click="toggleNavPage"  ></div>
+
         <div class="nav_start">
             <svg  class="nav_start_line">
                 <line x1="1rem" y1="0" x2="1rem" y2="200" />
@@ -18,6 +18,13 @@
                 <circle cx="75" cy="75" r="50" fill="none" />
             </svg>  
             <span class="scroll_text">SCROLL</span>
+        </div>
+
+         <div class="scroll" v-if="isMobile" @click="skipNav">
+            <svg height="150" width="150" class="scroll_circle scroll_circle_mobile">
+                <circle cx="75" cy="75" r="50" fill="none" />
+            </svg>  
+            <span class="scroll_text scroll_text_mobile">ENTER</span>
         </div>
     
     </div>
@@ -246,12 +253,28 @@ export default {
     stroke-dashoffset: 314;
     
 
-    animation: scroll 1.5s ease-out  0s 1 forwards;
+    animation: scroll 1.5s ease-out  0.5s 1 forwards;
+}
+.scroll_circle_mobile{
+    position: absolute;
+    stroke: var(--color-main-yellow);
+    stroke-width: 1px;
+    stroke-dasharray: 314;
+    stroke-dashoffset: 314;
+    
+
+    animation: enter 1.5s ease-out  0.5s 1 forwards;
 }
 .scroll_text{
+    opacity: 0;
     font-family: 'Open Sans', sans-serif;
     color: var(--color-main-yellow);
-    animation: scroll 1.5s ease-out 0s 1 forwards;
+    animation: scroll 1.5s ease-out 0.5s 1 forwards;
+}
+.scroll_text_mobile{
+    font-family: 'Open Sans', sans-serif;
+    color: var(--color-main-yellow);
+    animation: enter 1.5s ease-out 0.5s 1 forwards;
 }
 
 
@@ -267,6 +290,21 @@ export default {
    
     100%{
         opacity: 0;
+        stroke-dashoffset: 0;
+    }  
+}
+@keyframes enter {
+    0%{
+        opacity: 0;
+        stroke-dashoffset: 314;
+    }
+    75%{
+
+       
+    }
+   
+    100%{
+        opacity: 1;
         stroke-dashoffset: 0;
     }
 
