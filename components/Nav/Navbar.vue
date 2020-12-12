@@ -3,7 +3,7 @@
         <div class="nav_logo" :class="{nav_logo_dark : isDarkMode}">SWON</div>
         <div class="nav_process" v-show="isDarkMode" ref="nav_process">{{process}}</div>
         <!-- <div class="console">{{`processwidth:${processWidth } scrollPosition:${scrollPosition}` }}</div> -->
-        <div class="nav_circle" :class="{nav_circle_dark : isDarkMode}"  @click="toggleNavPage"  ></div>
+        <div class="nav_circle" :class="{nav_circle_dark : isDarkMode}"  @click="toggleNavPage" ></div>
 
         <div class="nav_start">
             <svg  class="nav_start_line">
@@ -20,11 +20,11 @@
             <span class="scroll_text">SCROLL</span>
         </div>
 
-        <div class="scroll" v-if="isMobile">
-            <svg height="150" width="150" class="scroll_circle">
+        <div class="scroll" v-if="isMobile" @click="skipNav">
+            <svg height="150" width="150" class="scroll_circle scroll_circle_mobile">
                 <circle cx="75" cy="75" r="50" fill="none" />
             </svg>  
-            <span class="scroll_text">Enter</span>
+            <span class="scroll_text scroll_text_mobile">Enter</span>
         </div>
 
      
@@ -251,14 +251,7 @@ export default {
     animation: scroll 1.5s ease-out  0.5s 1 forwards;
 }
 .scroll_circle_mobile{
-    position: absolute;
-    stroke: var(--color-main-yellow);
-    stroke-width: 1px;
-    stroke-dasharray: 314;
-    stroke-dashoffset: 314;
-    
-
-    animation: enter 1.5s ease-out  0.5s 1 forwards;
+     animation: enter 1.5s ease-out  0.5s 1 forwards;
 }
 .scroll_text{
     opacity: 0;
@@ -267,8 +260,7 @@ export default {
     animation: scroll 1.5s ease-out 0.5s 1 forwards;
 }
 .scroll_text_mobile{
-    font-family: 'Open Sans', sans-serif;
-    color: var(--color-main-yellow);
+
     animation: enter 1.5s ease-out 0.5s 1 forwards;
 }
 
@@ -288,6 +280,7 @@ export default {
         stroke-dashoffset: 0;
     }  
 }
+
 @keyframes enter {
     0%{
         opacity: 0;
