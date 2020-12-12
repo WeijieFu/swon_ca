@@ -91,12 +91,12 @@ export default {
     },
     beforeMount(){
         this.innerWidth = window.innerWidth;
-
+        let that = this;
         if(this.innerWidth>760){
             
              window.addEventListener('wheel', this.handleScroll);
         }else{
-            this.isMobile = true;
+            that.isMobile = true;
         }
         
     },
