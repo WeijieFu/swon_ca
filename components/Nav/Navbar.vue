@@ -13,13 +13,14 @@
         </div>
         
 
-        <div class="scroll">
+        <div class="scroll" v-if="!isMobile">
             <svg height="150" width="150" class="scroll_circle">
                 <circle cx="75" cy="75" r="50" fill="none" />
             </svg>  
             <span class="scroll_text">SCROLL</span>
         </div>
 
+     
         
     
     </div>
@@ -38,7 +39,7 @@ export default {
             scrollPosition: 0,
             processWidth: 0,
             fullLength: 9000,
-            
+            isMobile : true,
         }
     },
     methods:{
