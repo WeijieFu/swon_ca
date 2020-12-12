@@ -45,7 +45,14 @@ export default {
       config.module.rules.push({
         test: /\.(gltf)$/,
         loader: "gltf-webpack-loader"
-      })
+      });
+      config.module.rules.push({
+        test: /\.(ogg|mp3|wav|mpe?g)$/i,
+        loader: 'file-loader',
+        options: {
+          name: '[path][name].[ext]'
+        }
+      });
       // Sets webpack's mode to development if `isDev` is true.
       
     }

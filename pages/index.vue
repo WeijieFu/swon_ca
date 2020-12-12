@@ -11,6 +11,7 @@
       <Hills v-if="isDarkMode && !showNavPage"/>
       <NavPage :showNavPage="showNavPage"/>
       <Header v-show="!isDarkMode && !showNavPage"/>
+      <Audio/>
       
      
    
@@ -22,6 +23,7 @@ import Navbar from '@/components/Nav/Navbar.vue';
 import NavPage from '@/components/Nav/NavPage.vue';
 import Header from '@/components/Home/Header.vue';
 import Hills from '@/components/Home/Hills.vue';
+import Audio from '@/components/Home/Audio.vue';
 
 export default {
   data(){
@@ -37,6 +39,7 @@ export default {
     NavPage,
     Header,
     Hills,
+    Audio,
   }
 }
 </script>
