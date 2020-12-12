@@ -24,7 +24,7 @@
             <svg height="150" width="150" class="scroll_circle scroll_circle_mobile">
                 <circle cx="75" cy="75" r="50" fill="none" />
             </svg>  
-            <span class="scroll_text scroll_text_mobile">Enter</span>
+            <span class="scroll_text scroll_text_mobile">ENTER</span>
         </div>
 
      
@@ -46,7 +46,7 @@ export default {
             scrollPosition: 0,
             processWidth: 0,
             fullLength: 9000,
-            isMobile : true,
+            isMobile : false,
         }
     },
     methods:{
@@ -55,6 +55,7 @@ export default {
             this.isDarkMode = !this.isDarkMode;
             this.$emit('toggleDarkMode', this.isDarkMode );
             window.removeEventListener('wheel', this.handleScroll);
+
         },
 
         handleScroll(e){
@@ -92,7 +93,10 @@ export default {
         this.innerWidth = window.innerWidth;
 
         if(this.innerWidth>760){
+            
              window.addEventListener('wheel', this.handleScroll);
+        }else{
+            this.isMobile = true;
         }
         
     },
