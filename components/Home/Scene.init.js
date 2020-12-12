@@ -153,7 +153,7 @@ class SceneInit {
     loadModel(){
         const GLTFLoader = require('three-gltf-loader');
         const assetPath = 'https://cdn.jsdelivr.net/gh/WeijieFu/swon_ca/assets/model/';
-        this.loader = new GLTFLoader(assetPath);
+        this.loader = new GLTFLoader();
 
         this.loader.setPath(assetPath);
 
