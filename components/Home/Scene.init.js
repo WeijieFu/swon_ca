@@ -92,6 +92,7 @@ class SceneInit {
         requestAnimationFrame(()=> this.update());
 
 
+        
         if(this.cube){
             this.cube.rotation.y += 0.01;
             this.cube.rotation.z += 0.01;

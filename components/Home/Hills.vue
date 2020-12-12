@@ -16,11 +16,10 @@ export default {
        }
     },
     mounted(){
-       
         this.root = document.querySelector('.hills');
         sceneInit(this.root);
-
-    }
+    },
+    
 }
 </script>
 <style scoped>
