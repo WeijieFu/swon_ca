@@ -3,7 +3,8 @@
         <div class="nav_logo" :class="{nav_logo_dark : isDarkMode}">SWON</div>
         <div class="nav_process" v-show="isDarkMode" ref="nav_process">{{process}}</div>
         <!-- <div class="console">{{`processwidth:${processWidth } scrollPosition:${scrollPosition}` }}</div> -->
-        <div class="nav_circle" :class="{nav_circle_dark : isDarkMode}"  @click="toggleNavPage" ></div>
+        <div class="nav_circle" :class="{nav_circle_dark : isDarkMode, nav_circle_mobile : isMobile}"  @click="toggleNavPage" v-if="!isMobile" ></div>
+        <div class="nav_circle" :class="{nav_circle_dark : isDarkMode, nav_circle_mobile : isMobile}"  @click="skipNav" v-if="isMobile" ></div>
         <div class="nav_start">
             <svg  class="nav_start_line">
                 <line x1="1rem" y1="0" x2="1rem" y2="200" />
@@ -12,7 +13,7 @@
         </div>
         
 
-        <div class="scroll">
+        <div class="scroll" v-if="!isMobile">
             <svg height="150" width="150" class="scroll_circle">
                 <circle cx="75" cy="75" r="50" fill="none" />
             </svg>  
@@ -23,9 +24,16 @@
 </template>
 <script>
 export default {
+    data(){
+        return {
+            isMobile : false,
+        }
+    },
+
     props:{
         isDarkMode : Boolean,
         showNavPage: Boolean,
+    
    
     },
     data(){
@@ -59,19 +67,10 @@ export default {
             }
            
         },
-        handleMobile(){
-            let i = setInterval(()=>{
-                if(this.scrollPosition>=0){
-                    this.scrollPosition += 400;
-                    this.process += "|   ";
-
-                    if(this.scrollPosition > this.fullLength){
-                        this.toggleDarkMode();
-                        clearInterval(i);
-                    }
-                }
-            }, 100)
+        skipNav(){
+            this.toggleDarkMode();
         },
+
         toggleNavPage(){
             this.toggleDarkMode();
             this.showNavPage = !this.showNavPage;
@@ -91,7 +90,7 @@ export default {
         if(this.innerWidth>760){
              window.addEventListener('wheel', this.handleScroll);
         }else{
-            this.handleMobile();
+            this.isMobile = true;
         }
         
     },
@@ -162,7 +161,11 @@ export default {
     cursor:pointer;
 
 }
+.nav_circle_mobile{
 
+    min-width: 1rem;
+    min-height: 1rem;
+}
 
 .nav_start{
 
