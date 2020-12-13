@@ -253,7 +253,7 @@ export default {
     animation: scroll 1.5s ease-out  0.5s 1 forwards;
 }
 .scroll_circle_mobile{
-     animation: enter 1.5s ease-out  0.5s 1 forwards;
+     animation: enter 1.5s ease-out  1.5s 1 forwards;
 }
 .scroll_text{
     opacity: 0;
@@ -263,7 +263,7 @@ export default {
 }
 .scroll_text_mobile{
 
-    animation: enter 1.5s ease-out 0.5s 1 forwards;
+    animation: enter 1.5s ease-out 1.5s 1 forwards;
 }
 
 
