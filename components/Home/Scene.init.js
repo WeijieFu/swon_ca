@@ -6,7 +6,7 @@ class SceneInit {
         this.root = rootEl;
         this.width = rootEl.clientWidth;
         this.height = rootEl.clientHeight;
-
+        
         this.hill = null;
         this.theta = 0.001;
        
@@ -14,7 +14,7 @@ class SceneInit {
 
         this.canvas = document.createElement('canvas');
        
-       
+        this.mouse ={};
         this.init();
         this.update();
         this.bindEvents();
@@ -41,11 +41,11 @@ class SceneInit {
     
     initLights(){
         const ambient = new THREE.AmbientLight(0xFFFFFF, 0);
-
+        this.point = new THREE.PointLight(0xFFFFFF, 0.2, 100);
         const directional = new THREE.DirectionalLight(0xFFFFFF, 0.5);
-
+        // this.point.position.set(0, -15, -40);
         this.scene.add(ambient);
-
+        this.scene.add(this.point);
         this.scene.add(directional);
     }
 
@@ -103,6 +103,7 @@ class SceneInit {
         }
 
         if(this.hill){
+
             this.hill.children[0].rotation.z -= this.theta;
             this.hill.children[1].rotation.z -= this.theta;
             this.hill.children[2].rotation.z -= this.theta;
@@ -122,7 +123,7 @@ class SceneInit {
         }
         }
        
-        // this.controls.update();
+       
         this.render();
        
     }
@@ -130,6 +131,7 @@ class SceneInit {
     bindEvents(){
         window.addEventListener('resize', ()=> this.onResize());
         window.addEventListener('wheel', this.onScroll.bind(this));
+        window.addEventListener('mousemove', this.onMouseMove.bind(this));
     }
 
     onResize(){
@@ -142,7 +144,7 @@ class SceneInit {
         this.camera.right = this.width / (this.height < 800? 40 : 80); 
         this.camera.top = this.height / (this.height < 800? 40 : 80);
         this.camera.bottom = this.height /(this.height < 800? -40 : -80);
-        console.log(this.camera.left);
+
         this.camera.updateProjectionMatrix();
     }
     onScroll(e){
@@ -150,6 +152,21 @@ class SceneInit {
         this.hill.children[1].rotation.z -= e.deltaY/4500;
         this.hill.children[2].rotation.z -= e.deltaY/4500;
         
+    }
+
+    onMouseMove(e){
+        let that = this;
+        e.preventDefault();
+	    this.mouse.x = e.clientX;
+	    this.mouse.y = e.clientY;
+        let pos ={};
+     
+        pos.x = this.camera.left + (this.mouse.x / this.width)*(2*this.camera.right);
+        pos.y = this.camera.top - (this.mouse.y / this.height)*(2*this.camera.top);
+        pos.z = -20;
+        this.point.position.set(pos.x, pos.y, pos.z);
+
+
     }
     loadModel(){
         const GLTFLoader = require('three-gltf-loader');
@@ -160,7 +177,7 @@ class SceneInit {
 
         this.loader.load('hills3.gltf', gltf=>{
             this.hill = gltf.scene;
-            console.log(this.hill);
+
             this.hill.children[0].traverse(o=>{
                 if(o.isMesh){
                     o.position.z += -50;
@@ -194,10 +211,10 @@ class SceneInit {
         })
     }
     addObjects(){
-        this.geometry = new THREE.BoxGeometry( 1, 1, 1 );
+        this.geometry = new THREE.BoxGeometry( 5, 5, 5 );
         this.material = new THREE.MeshNormalMaterial();
         this.cube = new THREE.Mesh( this.geometry, this.material );
-        this.cube.position.y = 5;
+        this.cube.position.set(0,0,-50);
         this.scene.add( this.cube );
     }
 }
