@@ -96,9 +96,9 @@ export default {
             
              window.addEventListener('wheel', this.handleScroll);
         }else{
-            console.log(this.isMobile);
-            this.isMobile = !this.isMobile;
-            console.log(this.isMobile);
+            
+            
+            
         }
         
     },
