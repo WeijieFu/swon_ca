@@ -51,7 +51,7 @@ class SceneInit {
 
     initCamera(){
         const aspect = this.width/this.height;
-        this.camera = new THREE.OrthographicCamera( this.width / - 40, this.width / 40, this.height / 40, this.height / - 40, 10, 150 );
+        this.camera = new THREE.OrthographicCamera( this.width / (this.height < 800? -40 : -80), this.width / (this.height < 800? 40 : 80), this.height / (this.height < 800? 40 : 80), this.height / (this.height < 800? -40 : -80), 10, 150 );
 
         // this.camera.z = 1000;
         this.camera.aspect = aspect;
@@ -137,11 +137,12 @@ class SceneInit {
         this.height = this.root.clientHeight;
 
         this.renderer.setSize(this.width, this.height);
-
-        this.camera.left = this.width / - 40, 
-        this.camera.right = this.width / 40, 
-        this.camera.top = this.height / 40, 
-        this.camera.bottom = this.height / - 40
+        
+        this.camera.left = this.width / (this.height < 800? -40 : -80); 
+        this.camera.right = this.width / (this.height < 800? 40 : 80); 
+        this.camera.top = this.height / (this.height < 800? 40 : 80);
+        this.camera.bottom = this.height /(this.height < 800? -40 : -80);
+        console.log(this.camera.left);
         this.camera.updateProjectionMatrix();
     }
     onScroll(e){
