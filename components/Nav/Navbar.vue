@@ -13,14 +13,14 @@
         </div>
         
 
-        <div class="scroll" v-if="!isMobile">
+        <div class="scroll" v-show="!isMobile">
             <svg height="150" width="150" class="scroll_circle">
                 <circle cx="75" cy="75" r="50" fill="none" />
             </svg>  
             <span class="scroll_text">SCROLL</span>
         </div>
 
-        <div class="scroll" v-if="isMobile" @click="skipNav">
+        <div class="scroll" v-show="isMobile" @click="skipNav">
             <svg height="150" width="150" class="scroll_circle scroll_circle_mobile">
                 <circle cx="75" cy="75" r="50" fill="none" />
             </svg>  
@@ -46,7 +46,7 @@ export default {
             scrollPosition: 0,
             processWidth: 0,
             fullLength: 9000,
-            isMobile: false,
+            isMobile: true,
         }
     },
     methods:{
@@ -85,20 +85,16 @@ export default {
 
         getProcessWidth(){
             this.processWidth = this.$refs.nav_process.clientWidth;
-        }
-
+        },
+       
 
     },
     beforeMount(){
         this.innerWidth = window.innerWidth;
         let that = this;
         if(this.innerWidth>760){
-            
+            this.isMobile = false;
              window.addEventListener('wheel', this.handleScroll);
-        }else{
-            
-            
-            
         }
         
     },
