@@ -3,13 +3,13 @@
         <div class="nav_logo" :class="{nav_logo_dark : isDarkMode}">SWON</div>
         <div class="nav_process" v-show="isDarkMode" ref="nav_process">{{process}}</div>
         <!-- <div class="console">{{`processwidth:${processWidth } scrollPosition:${scrollPosition}` }}</div> -->
-        <div class="nav_circle" :class="{nav_circle_dark : isDarkMode}"  @click="toggleNavPage" ></div>
+        <div class="nav_circle" :class="{nav_circle_dark : isDarkMode}"  @click="skipNav" ></div>
 
-        <div class="nav_start">
-            <svg  class="nav_start_line">
+        <div class="nav_start" >
+            <svg  class="nav_start_line" :class="{nav_start_line_dark : isDarkMode}">
                 <line x1="1rem" y1="0" x2="1rem" y2="200" />
             </svg>
-            <span class="nav_start_text">START</span>
+            <span class="nav_start_text" :class="{nav_start_text_dark : isDarkMode}">START</span>
         </div>
         
 
@@ -181,6 +181,7 @@ export default {
     width: 2rem;
 }
 
+
 .nav_start_line{
     stroke: var(--color-main-black);
     stroke-width: 1px;
@@ -189,6 +190,10 @@ export default {
     stroke-dashoffset: 400;
 
     animation: start 2s ease-in 0s reverse infinite;
+}
+.nav_start_line_dark{
+    stroke: var(--color-main-yellow);
+    
 }
 @media only screen and (max-width: 600px) {
   .nav_start_line{
@@ -220,7 +225,10 @@ export default {
     transform: translateX(-12%);
 }
 
+.nav_start_text_dark{
 
+    color: var(--color-main-yellow);
+}
 
 
 .scroll {

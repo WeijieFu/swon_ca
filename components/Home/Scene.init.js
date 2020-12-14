@@ -182,7 +182,36 @@ class SceneInit {
                 if(o.isMesh){
                     o.position.z += -50;
                     o.position.y += 5;
-                    o.material = new THREE.MeshLambertMaterial();
+
+                    o.geometry.clearGroups();
+                    o.geometry.addGroup( 0, Infinity, 0 );
+                    o.geometry.addGroup( 0, Infinity, 1 );
+                    o.geometry.addGroup( 0, Infinity, 2 );
+
+                    const material0 = new THREE.MeshLambertMaterial( {
+                        color: 0xffffff,
+                        visible: true
+                    } );
+                    const material1 = new THREE.MeshLambertMaterial( {
+                        color: 0xffffff,
+                        visible: true,
+                        wireframe: true,
+                        transparent:true,
+                        opacity: 0.3
+                    } );
+                    const material2 = new THREE.MeshNormalMaterial( {
+                        opacity: 0.5,
+                        transparent: true,
+                        visible: true
+                    } );
+
+                    o.material = [material0, material1, material2];
+                    
+
+
+                   
+
+                    
 
 
                 }
@@ -191,7 +220,30 @@ class SceneInit {
                 if(o.isMesh){
                     o.position.z += -50;
                     o.position.y += 5;
-                    o.material = new THREE.MeshLambertMaterial();
+                    
+                    o.geometry.clearGroups();
+                    o.geometry.addGroup( 0, Infinity, 0 );
+                    o.geometry.addGroup( 0, Infinity, 1 );
+                    o.geometry.addGroup( 0, Infinity, 2 );
+
+                    const material0 = new THREE.MeshLambertMaterial( {
+                        color: 0xffffff,
+                        visible: true
+                    } );
+                    const material1 = new THREE.MeshLambertMaterial( {
+                        color: 0xffffff,
+                        visible: true,
+                        wireframe: true,
+                        transparent:true,
+                        opacity: 0.3
+                    } );
+                    const material2 = new THREE.MeshNormalMaterial( {
+                        opacity: 0.5,
+                        transparent: true,
+                        visible: true
+                    } );
+
+                    o.material = [material0, material1, material2];
 
 
                 }
@@ -200,19 +252,43 @@ class SceneInit {
                 if(o.isMesh){
                     o.position.z += -50;
                     o.position.y += 5;
-                    o.material = new THREE.MeshLambertMaterial();
+                   
+                    o.geometry.clearGroups();
+                    o.geometry.addGroup( 0, Infinity, 0 );
+                    o.geometry.addGroup( 0, Infinity, 1 );
+                    o.geometry.addGroup( 0, Infinity, 2 );
+
+                    const material0 = new THREE.MeshLambertMaterial( {
+                        color: 0xffffff,
+                        visible: true
+                    } );
+                    const material1 = new THREE.MeshLambertMaterial( {
+                        color: 0xffffff,
+                        visible: true,
+                        wireframe: true,
+                        transparent:true,
+                        opacity: 0.3
+                    } );
+                    const material2 = new THREE.MeshNormalMaterial( {
+                        opacity: 0.5,
+                        transparent: true,
+                        visible: true
+                    } );
+
+                    o.material = [material0, material1, material2];
 
 
                 }
             })
             this.scene.add(this.hill);
-           
-
         })
     }
     addObjects(){
         this.geometry = new THREE.BoxGeometry( 5, 5, 5 );
         this.material = new THREE.MeshNormalMaterial();
+        
+
+        
         this.cube = new THREE.Mesh( this.geometry, this.material );
         this.cube.position.set(0,0,-50);
         this.scene.add( this.cube );
