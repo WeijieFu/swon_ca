@@ -197,8 +197,8 @@ class SceneInit {
                         color: 0xffffff,
                         visible: true,
                         wireframe: true,
-                        transparent:true,
-                        opacity: 0.3
+                        // transparent:true,
+                        // opacity: 0.3
                     } );
                     const material2 = new THREE.MeshNormalMaterial( {
                         opacity: 0.5,
@@ -235,8 +235,8 @@ class SceneInit {
                         color: 0xffffff,
                         visible: true,
                         wireframe: true,
-                        transparent:true,
-                        opacity: 0.3
+                        // transparent:true,
+                        // opacity: 1
                     } );
                     const material2 = new THREE.MeshNormalMaterial( {
                         opacity: 0.5,
@@ -267,8 +267,8 @@ class SceneInit {
                         color: 0xffffff,
                         visible: true,
                         wireframe: true,
-                        transparent:true,
-                        opacity: 0.3
+                        // transparent:true,
+                        // opacity: 0.3
                     } );
                     const material2 = new THREE.MeshNormalMaterial( {
                         opacity: 0.5,

@@ -3,7 +3,11 @@
         <div class="nav_logo" :class="{nav_logo_dark : isDarkMode}">SWON</div>
         <div class="nav_process" v-show="isDarkMode" ref="nav_process">{{process}}</div>
         <!-- <div class="console">{{`processwidth:${processWidth } scrollPosition:${scrollPosition}` }}</div> -->
-        <div class="nav_circle" :class="{nav_circle_dark : isDarkMode}"  @click="skipNav" ></div>
+        <div class="nav_circle" :class="{nav_circle_dark : isDarkMode}"  @click="skipNav" >
+            <svg height="2rem" width="2rem" class="nav_circle_svg" :class="{nav_circle_svg_dark : isDarkMode}" >
+                <circle cx="1rem" cy="1rem" r="1rem" />
+            </svg>
+        </div>
 
         <div class="nav_start" >
             <svg  class="nav_start_line" :class="{nav_start_line_dark : isDarkMode}">
@@ -11,15 +15,12 @@
             </svg>
             <span class="nav_start_text" :class="{nav_start_text_dark : isDarkMode}">START</span>
         </div>
-        
-
         <div class="scroll" v-show="!isMobile">
             <svg height="150" width="150" class="scroll_circle">
                 <circle cx="75" cy="75" r="50" fill="none" />
             </svg>  
             <span class="scroll_text">SCROLL</span>
         </div>
-
         <div class="scroll" v-show="isMobile" @click="skipNav">
             <svg height="150" width="150" class="scroll_circle scroll_circle_mobile">
                 <circle cx="75" cy="75" r="50" fill="none" />
@@ -27,9 +28,6 @@
             <span class="scroll_text scroll_text_mobile">ENTER</span>
         </div>
 
-     
-        
-    
     </div>
 </template>
 <script>
@@ -154,22 +152,21 @@ export default {
     width: 2rem;
     height: 2rem;
     transition: all ease-out 0.2s;
-    background-color: var(--color-main-black);
-    border-radius: 100%;
+  
+  
 }
-.nav_circle_dark{
-    background-color: var(--color-main-yellow);
+.nav_circle_svg{
+     fill: var(--color-main-black);
+}
+.nav_circle_svg_dark{
+    fill: var(--color-main-yellow);
 }
 .nav_circle:hover {
     transform: scale(1.3,1.3);
     cursor:pointer;
 
 }
-.nav_circle_mobile{
 
-    min-width: 1rem;
-    min-height: 1rem;
-}
 
 .nav_start{
 
