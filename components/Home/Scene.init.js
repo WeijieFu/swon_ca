@@ -43,6 +43,7 @@ class SceneInit {
         const ambient = new THREE.AmbientLight(0xFFFFFF, 0);
         this.point = new THREE.PointLight(0xFFFFFF, 0.5, 100);
         const directional = new THREE.DirectionalLight(0xFFFFFF, 0.5);
+        directional.position.z = -100;
         // this.point.position.set(0, -15, -40);
         this.scene.add(ambient);
         this.scene.add(this.point);
