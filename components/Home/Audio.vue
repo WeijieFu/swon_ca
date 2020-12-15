@@ -1,7 +1,7 @@
 <template>
     <div class="audio">
         <audio class="sound" autoplay="true">
-            <source src="@/assets/audio/bensound-slowmotion.mp3" type="audio/mpeg">
+            <source src="@/assets/audio/sound.mp3" type="audio/mpeg">
             Your browser does not support the audio element.
         </audio>
 
