@@ -10,7 +10,7 @@ class SceneInit {
         this.hill = null;
         this.theta = 0.001;
        
-        this.background = 0x000000;
+        this.background = 0x123456;
 
         this.canvas = document.createElement('canvas');
        
@@ -29,9 +29,6 @@ class SceneInit {
         this.initLights();
         this.initCamera();
         this.initRenderer();
-        // this.initControls();
-
-
         this.root.appendChild(this.canvas);
     }
 
