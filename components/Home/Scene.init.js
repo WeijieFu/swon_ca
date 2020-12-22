@@ -10,7 +10,7 @@ class SceneInit {
         this.hill = null;
         this.theta = 0.001;
        
-        this.background = 0x123456;
+        this.background = 0x000000;
 
         this.canvas = document.createElement('canvas');
        
