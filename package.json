@@ -9,6 +9,7 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
+    "@nuxtjs/axios": "^5.12.4",
     "ci-info": "^2.0.0",
     "core-js": "^3.6.5",
     "gltf-webpack-loader": "^1.0.6",
