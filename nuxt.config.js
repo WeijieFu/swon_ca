@@ -35,8 +35,11 @@ export default {
   ],
 
   // Modules (https://go.nuxtjs.dev/config-modules)
-  modules: ['@nuxtjs/axios'],
-
+  modules: ['@nuxtjs/axios'
+],
+  axios: {
+    baseURL: 'https://swon-strapi.herokuapp.com/', // Used as fallback if no runtime config is provided
+  },
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {
     extend(config) {
