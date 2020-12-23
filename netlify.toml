@@ -1,5 +1,0 @@
-[[redirects]]
-  from = "/admin"
-  to = "https://swon-strapi.herokuapp.com/admin/auth/login"
-  status = 200
-  force = true
