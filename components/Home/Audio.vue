@@ -10,10 +10,10 @@
 </template>
 <script>
 export default {
-    data(){
-        return {
-            isAudioPlay: false,
-        }
+   
+
+    props:{
+        isAudioPlay : Boolean
     },
     methods:{
         onClick(){

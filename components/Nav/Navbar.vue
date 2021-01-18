@@ -1,26 +1,36 @@
 <template>
     <div class="navbar">
-        <div class="nav_logo" :class="{nav_logo_dark : isDarkMode}">SWON</div>
+
+        <div class="nav_logo" :class="{nav_logo_dark : isDarkMode || showNavPage}">SWON</div>
         <div class="nav_process" v-show="isDarkMode" ref="nav_process">{{process}}</div>
         <!-- <div class="console">{{`processwidth:${processWidth } scrollPosition:${scrollPosition}` }}</div> -->
-        <div class="nav_circle" :class="{nav_circle_dark : isDarkMode}"  @click="skipNav" >
-            <svg height="2rem" width="2rem" class="nav_circle_svg" :class="{nav_circle_svg_dark : isDarkMode}" >
+        
+
+        <div class="nav_circle" :class="{nav_circle_dark : isDarkMode || showNavPage}"  @click="toggleNavPage" >
+            <svg height="2rem" width="2rem" class="nav_circle_svg" :class="{nav_circle_svg_dark : isDarkMode || showNavPage}" >
                 <circle cx="1rem" cy="1rem" r="1rem" />
             </svg>
         </div>
 
-        <div class="nav_start" >
+
+
+        <div class="nav_start" v-if="!showNavPage" >
             <svg  class="nav_start_line" :class="{nav_start_line_dark : isDarkMode}">
                 <line x1="1rem" y1="0" x2="1rem" y2="200" />
             </svg>
             <span class="nav_start_text" :class="{nav_start_text_dark : isDarkMode}">START</span>
         </div>
+
+
         <div class="scroll" v-show="!isMobile">
             <svg height="150" width="150" class="scroll_circle">
                 <circle cx="75" cy="75" r="50" fill="none" />
             </svg>  
             <span class="scroll_text">SCROLL</span>
         </div>
+
+
+        <!-- MOBILE SCROLL -->
         <div class="scroll" v-show="isMobile" @click="skipNav">
             <svg height="150" width="150" class="scroll_circle scroll_circle_mobile">
                 <circle cx="75" cy="75" r="50" fill="none" />
@@ -50,7 +60,7 @@ export default {
     methods:{
         toggleDarkMode(){
             this.process ="";
-            this.isDarkMode = !this.isDarkMode;
+            this.isDarkMode = false;
             this.$emit('toggleDarkMode', this.isDarkMode );
             window.removeEventListener('wheel', this.handleScroll);
 

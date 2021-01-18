@@ -19,6 +19,8 @@ export default {
         this.root = document.querySelector('.hills');
         sceneInit(this.root);
     },
+
+    
     
 }
 </script>

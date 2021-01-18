@@ -9,11 +9,16 @@
         />
 
       <Hills v-if="isDarkMode && !showNavPage"/>
+
       <NavPage :showNavPage="showNavPage"/>
-      <Header v-show="!isDarkMode && !showNavPage"/>
-      <Audio/>
+      <!-- <Header v-show="!isDarkMode && !showNavPage"/> -->
+      <Audio  v-if="isDarkMode" :isAudioPlay="isDarkMode && !showNavPage"/>
+
+      <StatusBar v-if="!isDarkMode"/>
+
+      <Background/>
       
-     
+      
    
   </div>
 </template>
@@ -24,6 +29,7 @@ import NavPage from '@/components/Nav/NavPage.vue';
 import Header from '@/components/Home/Header.vue';
 import Hills from '@/components/Home/Hills.vue';
 import Audio from '@/components/Home/Audio.vue';
+import Background from '@/components/Home/Background.vue';
 
 export default {
   data(){
@@ -40,6 +46,7 @@ export default {
     Header,
     Hills,
     Audio,
+    Background,
   }
 }
 </script>
@@ -53,13 +60,13 @@ export default {
   justify-content: center;
   align-items: center;
   text-align: center;
-
+ 
   transition: all ease-out 0.5s ;
-  background-color: var(--color-main-yellow);
+
 }
 
 .container_dark{
-  background-color: var(--color-main-black);
+
 }
 
 
