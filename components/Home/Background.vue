@@ -1,11 +1,15 @@
 <template>
     <div class="background">
-        <img class="background_img" src="@/assets/img/01_background_1.png" alt="background image">
+        <img class="background_img" :src="root+'01_background_1.png'" alt="background image">
     </div>
 </template>
 <script>
 export default {
-    
+    data(){
+        return {
+            root: 'https://cdn.jsdelivr.net/gh/WeijieFu/swon_ca/assets/img/'
+        }
+    }
 }
 </script>
 <style scoped>

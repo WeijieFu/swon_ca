@@ -4,7 +4,7 @@
             <span class="status_projects_number">{{projectsTotal}}</span> Projects | <span class="status_projects_number">{{projectsBuilt}}</span> built |  <span class="status_projects_number">{{projectsOnGoing}}</span> on-going
         </div>
         <div class="status_right">
-            {{time}} | {{location}} | {{weather}}
+            {{time}} | {{location}} | {{weather}} | {{temperature}} °C
         </div>
     </div>
 </template>
@@ -17,21 +17,33 @@ export default {
             projectsOnGoing: 2,
             time: '',
             location:'Toronto',
-            weather:'Snow'
+            weather:'Snow',
+            temperature: '10'
         }
     },
+
+    
 
     methods:{
         timeUpdate(){
             setInterval( ()=>{
                 this.time = new Date().toLocaleString();
             },1000);
+        },
+        async getWeather(){
+            const key = '681f6e9d9fcd2038148c4ce41300074e';
+            const weather = await this.$axios.$get(`https://api.openweathermap.org/data/2.5/weather?q=${this.location}&appid=${key}`);
+            this.weather = weather.weather[0].main;
+            this.temperature = (weather.main.temp - 273).toFixed(1);
+            console.log(this.weather);
         }
     },
 
     mounted(){
         this.time = new Date().toLocaleString();
         this.timeUpdate();
+        this.getWeather();
+
     }
 }
 </script>
