@@ -15,12 +15,15 @@ export default {
 </script>
 <style scoped>
 .navpage{
-    width: calc(100vw - 4rem);
-    height: calc(100vh - 10rem);
+    /* width: calc(100vw - 4rem); */
+    /* height: calc(100vh - 10rem); */
+
+    width: 100vw;
+    height: 100vh;
     position:absolute;
-    top: -100%;
-    left:2rem;
-    /* background-color:var(--color-main-black); */
+    top: -110%;
+    left:0rem;
+    background-color:var(--color-main-black);
 
     color: var(--color-main-yellow);
 
@@ -29,16 +32,14 @@ export default {
     align-items: flex-end;
     justify-content: space-between;
    
-    backdrop-filter: blur(10px);
-
-    border-radius: 2rem;
-    border: 1px solid #fff;
-    
-    box-shadow: 0px 0px 25px 5px rgba(0, 0, 0, 0.2);;
+    /* backdrop-filter: blur(10px); */
+    /* border-radius: 2rem; */
+    /* border: 1px solid #fff; */
+    /* box-shadow: 0px 0px 25px 5px rgba(0, 0, 0, 0.2);; */
 }
 
 .navpage_show{
-    top: 7rem;
+    top: 0rem;
 }
 .text{
     font-family: "Open Sans", sans-serif;

@@ -18,8 +18,18 @@ export default {
 </script>
 <style scoped>
 .nav_about{
+    transition: all 0.2s ease-in-out;
     width: 100%;
     /* border: #fff 0.5px solid; */
     height: calc(100vh - 10rem);
+    display: flex;
+    flex-direction: column;
+    outline: 1px solid #fff;
+    outline-offset: -0.5px;
+   
+
+}
+.nav_about:hover{
+    width: 200%;
 }
 </style>

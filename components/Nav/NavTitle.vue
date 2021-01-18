@@ -17,7 +17,8 @@ export default {
         font-weight: 600;
         font-size: 2rem;
         height: 5rem;
-        /* border: 0.5px solid #fff; */
+        outline: 1px solid #fff;
+        outline-offset: -0.5px;
         display: flex;
         align-items: center;
         justify-content: center;
